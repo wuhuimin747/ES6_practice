@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./runner.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //普通的回调
+    $.ajax({
+        url : '../files/01.json',
+        success(data1){
+            console.info(data1);
+            $.ajax({
+                url : '../files/02.json',
+                success(data2){
+                    console.info(data2);
+                    $.ajax({
+                        url : '../files/03.json',
+                        success(data3){
+                            console.info(data3);
+                        }
+                    })
+                }
+            })
+        }
+    })
+
+    //promise下的回调---适合在一堆请求之后有逻辑的时候用
+    //传统方法以后再说
+    Promise.all([
+        $.ajax('../files/01.json'),
+        $.ajax('../files/02.json'),
+        $.ajax('../files/03.json'),
+    ]).then(result => {
+        console.info('promise all : \n' , result);
+    });
+
+    //逐步执行呢,完全可以的
+    $.ajax('../files/01.json')
+    .then(result => {
+        console.info('逐步执行' , result);
+        return $.ajax('../files/02.json');
+    })
+    .then(result => {
+        console.info('逐步执行' , result);
+        return $.ajax('../files/03.json');
+    }).then(result => {
+        console.info('逐步执行' , result);
+    })
+
+    //条件逐步
+    $.ajax('../files/01.json')
+    .then(result => {
+        console.info('逐步执行' , result);
+        return $.ajax('../files/02.json');
+    })
+    .then(result => {
+        if(result.a == 3){
+            console.info('逐步执行' , result);
+            return $.ajax('../files/03.json');
+        }else{
+            alert('nonno');
+        }
+    }).then(result => {
+        if(result){
+            console.info('逐步执行' , result);
+        }
+    })
+    
+
+    //使用generator加上runner.js , 可以处理在逐个操作之间有逻辑的时候用，好像还有点问题哦
+    /* runner(function *(){
+        let data2 = yield  $.ajax({url : '../files/02.json' , dataType : 'json'});
+        if(data2){
+            let data1 = yield  $.ajax({url : '../files/01.json' , dataType : 'json'});
+            for(v in data1){
+                console.info(v);
+                
+            }
+            // let data3 = yield  $.ajax({url : '../files/03.json' , dataType : 'json'});
+            // console.info('generator third: ' ,data3);
+        }
+    }) */
+</script>
+</html>

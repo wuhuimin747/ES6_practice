@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const str = 'http://g.cn';
+
+    if(str.startsWith('http')){
+        alert('普通网站')
+    }else if(str.startsWith('https')){
+        alert('安全网站')
+    }
+
+    const filePath = '../files/1.txt';
+    if(filePath.endsWith('.txt')){
+        alert('文本文件');
+    }else if(filePath.endsWith('.png')){
+        alert('图片文件')
+    } 
+    </script>
+</body>
+</html>

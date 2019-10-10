@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //模板字符串1.将js变量通过${xx}的方式直接添加到字符串当中十分方便 ， 2.可以折行
+
+
+        //传统方式
+        let title = '文章标题';
+        let dateStr = '2019-09-09';
+        let str = '<a href="http://www.baidu.com">' + title + '<span>' + dateStr + '</span></a>'
+
+
+        //模板字符串
+        let year = new Date().getFullYear();
+        let month = new Date().getMonth() + 1;
+        let date = new Date().getDate();
+        dateStr = `${year}-${month}-${date}`
+        str = `<a href="http://www.baidu.com">
+        ${title}${dateStr}
+        </a>`;
+        $('#app').append(str);
+    </script>
+</body>
+</html>

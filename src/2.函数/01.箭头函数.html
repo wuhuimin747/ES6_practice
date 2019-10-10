@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //传统的函数的写法
+    // window.onload = function(){
+    //     alert("I’m ready!");
+    // }
+
+    let show_1 = function(){
+        alert("I’m ready!");
+    }
+
+    function show_2(){
+        alert("I’m ready!");
+    }
+
+    //箭头函数的写法：1.去掉function  2.在圆括号和花括号中间加上箭头=>
+    //箭头函数中的this只想的是上下文中函数所在的对象
+    window.onload = ()=>{
+        alert("I’m ready!");
+    }
+
+    let show_3 = ()=>{
+        alert("I’m ready!");
+    }
+
+    show_3();
+    </script>
+</body>
+</html>

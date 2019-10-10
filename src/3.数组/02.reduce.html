@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //计算总数
+    let score = [59 , 60 ,99 ,48];
+    //reduce函数内部也必须return有返回值 ， 计算的最终结果会有一个返回值，不影响原数组
+    let sum = score.reduce((tmp , item , index) => {
+        return tmp + item;
+    })
+    //alert(sum);
+
+    //计算平均值 
+    let avg = score.reduce((tmp , item , index) => {
+        if(index == score.length - 1){ //最后一次是求和再做除法
+            return (tmp + item) / score.length;
+        }
+        //前面每一次都是再求和
+        return tmp + item;
+    })
+    alert(avg);
+
+    </script>
+</body>
+</html>

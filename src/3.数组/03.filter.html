@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //计算能被3整除的部分
+    let score = [59 , 60 ,99 ,48];
+    
+    //filter里面的函数，return的是true或者false , 不同于map  reduce返回的是映射结果或者计算后的中间值
+    // let divide_three = score.filter((item) => {
+    //     return item % 3 == 0 ? true : false;
+    // })
+    let divide_three = score.filter( item => item % 3 == 0 )
+
+    alert(divide_three);
+    </script>
+</body>
+</html>

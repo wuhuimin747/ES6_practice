@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //ES5版本官方不支持面向对象，ES5的面向对象都是用js其他的属性模拟出来的，语法繁琐，感觉都拼西凑的都是，
+    //现在ES6出来官方支持面向对象就好写多了
+    class User{
+        constructor(name , age){  //构造函数
+            this.name = name;
+            this.age = age;
+        }
+        showName(){ //类生成的对象可以调用的函数
+            console.info(this.name);
+        }
+        showAge(){
+            console.info(this.age);
+        }
+    }
+
+    //VipUser类继承User类
+    class VipUser extends User{
+        constructor(name , age , level){//构造函数
+            super(name , age);//调用父类的构造函数
+            this.level = level; //自由属性的构造
+        }
+
+        showLevel(){
+            console.info(this.level);
+        }
+    }
+
+    let vip = new VipUser('zhangyingxue' , 18 , '13级');
+    vip.showName(); //继承的方法也能直接使用
+    vip.showAge();
+    vip.showLevel();
+    </script>
+</body>
+</html>

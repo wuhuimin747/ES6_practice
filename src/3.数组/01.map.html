@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    let arr = [ 1, 2, 3, 4, 5];
+    //吧数组映射成原来的二倍
+    //map函数内部的函数。需要有return ，map完成以后会返回一个新数组，不改变原数组本身
+    var arr_map = arr.map(item => item * 2);
+
+    alert(arr);
+    alert(arr_map);
+
+    let score = [59 , 80 , 99 , 44 , 1];
+    let result = score.map(item => item>=60 ? '及格' : '不及格')
+    alert(result)
+    </script>
+</body>
+</html>

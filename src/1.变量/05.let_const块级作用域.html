@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //let 和 const 定义的变量都能满足块级作用域  而不是 限制于函数作用域
+        {
+            let a = 1;
+            const b = 2;
+        }
+
+        alert(a);//Uncaught ReferenceError: a is not defined
+        alert(b);//Uncaught ReferenceError: b is not defined
+    </script>
+</body>
+</html>

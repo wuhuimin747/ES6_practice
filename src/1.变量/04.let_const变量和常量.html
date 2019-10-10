@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //let定义的是变量，可以多次修改
+        let a = 1;
+        a = 2;
+        alert(a);
+
+        //const定义的是常量，不可以被修改，改就报错 
+        const b = 1 ;  
+        b = 2; //Uncaught TypeError: Assignment to constant variable.
+        alert(b);
+    </script>
+</body>
+</html>

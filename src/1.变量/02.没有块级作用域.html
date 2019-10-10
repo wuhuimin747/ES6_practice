@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //典型的块级作用域
+        {
+
+        }
+
+        if(true){
+            var a = 1;
+        }
+
+        alert(a);  //如果有块级作用域的话  这里a不应该被访问到
+        for(;;){
+         
+        }
+    </script>
+</body>
+</html>

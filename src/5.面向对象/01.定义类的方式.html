@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //传统的定义一个类的方式
+    /* function User(name , age){
+        this.name = name;
+        this.age = age;
+    }
+
+    User.prototype.showName = function(){
+        console.info(this.name);
+    }
+    User.prototype.showAge = function(){
+        console.info(this.age);
+    } */
+
+    class User{
+        constructor(name , age){  //构造函数
+            this.name = name;
+            this.age = age;
+        }
+        showName(){ //类生成的对象可以调用的函数
+            console.info(this.name);
+        }
+        showAge(){
+            console.info(this.age);
+        }
+    }
+
+    let u = new User('wuhuimin' , 18);
+    u.showName();
+    u.showAge();
+    </script>
+</body>
+</html>

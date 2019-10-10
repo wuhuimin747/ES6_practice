@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1. generator函数的特点是能暂停函数的执行，分布走，不能写成箭头函数的形式
+    // 2. 特别之处在于函数名前面加一个星号* ， 需要在哪里暂停就写上一个yield  
+    // 3. yield还可从外部传参，内部可拿变量接受并使用
+    // 4. 外部调用gennerator函数时，会返回一个generator对象，需要拿变量接着  let gen = show()
+    // 5. 对象接着调用next(param)方法将函数往下执行, 函数内部的每一个yield都是执行的分割点
+
+    function *show(){
+        //alert('a');
+
+        let param = yield;
+
+        //alert('b');
+        alert(param);
+
+        let y2 = yield;
+        alert(y2);
+    }
+
+    let gen = show();  //出现一个生成器对象
+    gen.next(12);  //a   第一个next从开始执行到yield初，无法传参，所以12穿不进去
+    gen.next(5);  //b    第二个next从yield左边执行到最后，传参管用
+    gen.next('second yield param'); //第二次yield 还能传参
+    </script>
+</body>
+</html>
